@@ -16,7 +16,7 @@
                 <div class="flex items-center mr-auto h-8">
                     <h3 class="mr-5 font-semibold font-serif" :class="{'hidden': hideLogoOnSmallScreens, 'sm:block': hideLogoOnSmallScreens}">
                         <router-link to="/" class="no-underline text-text-color">
-                            <span class="text-light">W</span>ink.
+                            <span class="text-light"></span>Wink.
                         </router-link>
                     </h3>
 
@@ -33,10 +33,10 @@
 
                         <div slot="content" class="dropdown-content pin-r min-w-dropdown mt-1 text-sm py-2">
                             <router-link :to="{name:'team-edit', params:{id: Wink.author.id}}" class="no-underline text-text-color font-sans hover:text-primary w-full block py-2 px-4 border-b border-very-light">
-                                Profile
+                                Profileee
                             </router-link>
                             <router-link to="/posts" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
-                                Posts
+                                Postsss
                             </router-link>
                             <!-- <router-link to="/pages" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
                                 Pages
@@ -47,10 +47,10 @@
                             </router-link> -->
 
                             <router-link to="/team" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
-                                Team
+                                Teammm
                             </router-link>
                             <a :href="'/'+Wink.path+'/logout'" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4 border-t border-very-light">
-                                Log out
+                                Log outtt
                             </a>
                         </div>
                     </dropdown>

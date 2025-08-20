@@ -47273,8 +47273,8 @@ var render = function () {
                     attrs: { to: "/" },
                   },
                   [
-                    _c("span", { staticClass: "text-light" }, [_vm._v("W")]),
-                    _vm._v("ink.\n                    "),
+                    _c("span", { staticClass: "text-light" }),
+                    _vm._v("Wink.\n                    "),
                   ]
                 ),
               ],
@@ -47334,7 +47334,7 @@ var render = function () {
                     },
                     [
                       _vm._v(
-                        "\n                            Profile\n                        "
+                        "\n                            Profileee\n                        "
                       ),
                     ]
                   ),
@@ -47348,7 +47348,7 @@ var render = function () {
                     },
                     [
                       _vm._v(
-                        "\n                            Posts\n                        "
+                        "\n                            Postsss\n                        "
                       ),
                     ]
                   ),
@@ -47362,7 +47362,7 @@ var render = function () {
                     },
                     [
                       _vm._v(
-                        "\n                            Team\n                        "
+                        "\n                            Teammm\n                        "
                       ),
                     ]
                   ),
@@ -47376,7 +47376,7 @@ var render = function () {
                     },
                     [
                       _vm._v(
-                        "\n                            Log out\n                        "
+                        "\n                            Log outtt\n                        "
                       ),
                     ]
                   ),
