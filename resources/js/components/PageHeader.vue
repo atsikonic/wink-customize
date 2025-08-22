@@ -38,9 +38,9 @@
                             <router-link to="/posts" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
                                 Posts
                             </router-link>
-                            <router-link to="/pages" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
+                            <!-- <router-link to="/pages" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
                                 Pages
-                            </router-link>
+                            </router-link> -->
 
                             <router-link to="/tags" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
                                 Tags

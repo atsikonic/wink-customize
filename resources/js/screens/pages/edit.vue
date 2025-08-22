@@ -28,6 +28,7 @@
                     slug: '',
                     body: '',
                     meta: {
+                        meta_title: '',
                         meta_description: '',
                         opengraph_title: '',
                         opengraph_description: '',
@@ -114,6 +115,7 @@
                     this.form.slug = data.slug;
                     this.form.body = data.body;
                     this.form.meta = {
+                        meta_title: data.meta.meta_title || '',
                         meta_description: data.meta.meta_description || '',
                         opengraph_title: data.meta.opengraph_title || '',
                         opengraph_description: data.meta.opengraph_description || '',

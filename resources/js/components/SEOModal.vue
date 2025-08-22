@@ -11,6 +11,7 @@
                 twitterImageUploading: false,
 
                 form: {
+                    meta_title: '',
                     meta_description: '',
                     opengraph_title: '',
                     opengraph_description: '',
@@ -70,6 +71,15 @@
 
 <template>
     <modal @close="close">
+        <div class="input-group">
+            <label for="meta_title" class="input-label">
+                Meta title
+            </label>
+            <textarea class="input"
+                      v-model="form.meta_title"
+                      placeholder="Meta title"
+                      id="meta_title"></textarea>
+        </div>
         <div class="input-group">
             <label for="meta_description" class="input-label">
                 Meta description
