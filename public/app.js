@@ -48524,161 +48524,163 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "border-b border-very-light mb-10" }, [
-    _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "flex items-center py-2" }, [
+  return _c(
+    "div",
+    {
+      staticClass: "border-b border-very-light mb-10",
+      staticStyle: { background: "#26415e", color: "white" }
+    },
+    [
+      _c("div", { staticClass: "container" }, [
         _c(
           "div",
-          { staticClass: "flex items-center mr-auto h-8" },
+          {
+            staticClass: "flex items-center",
+            staticStyle: { "padding-top": "2.5rem", "padding-bottom": "2.5rem" }
+          },
           [
             _c(
-              "h3",
-              {
-                staticClass: "mr-5 font-semibold font-serif",
-                class: {
-                  hidden: _vm.hideLogoOnSmallScreens,
-                  "sm:block": _vm.hideLogoOnSmallScreens
-                }
-              },
+              "div",
+              { staticClass: "flex items-center mr-auto h-8" },
               [
                 _c(
-                  "router-link",
+                  "h3",
                   {
-                    staticClass: "no-underline text-text-color",
-                    attrs: { to: "/" }
+                    staticClass: "mr-5 font-semibold font-serif",
+                    class: {
+                      hidden: _vm.hideLogoOnSmallScreens,
+                      "sm:block": _vm.hideLogoOnSmallScreens
+                    }
                   },
                   [
-                    _c("span", { staticClass: "text-light" }, [_vm._v("W")]),
-                    _vm._v("ink.\n                    ")
-                  ]
-                )
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "no-underline text-text-color",
+                        staticStyle: { color: "whitesmoke" },
+                        attrs: { to: "/" }
+                      },
+                      [
+                        _vm._v(
+                          "\n                    ATS\n                    "
+                        )
+                      ]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm._t("left-side")
               ],
-              1
+              2
             ),
             _vm._v(" "),
-            _vm._t("left-side")
-          ],
-          2
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "flex items-center" },
-          [
-            _vm._t("right-side"),
-            _vm._v(" "),
-            _c("dropdown", { staticClass: "relative ml-6" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "focus:outline-none",
-                  attrs: { slot: "trigger", type: "button" },
-                  slot: "trigger"
-                },
-                [
-                  _c("img", {
-                    staticClass: "rounded-full w-8 h-8",
-                    attrs: {
-                      src: _vm.Wink.author.avatar,
-                      title: _vm.Wink.author.name
-                    }
-                  })
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "dropdown-content pin-r min-w-dropdown mt-1 text-sm py-2",
-                  attrs: { slot: "content" },
-                  slot: "content"
-                },
-                [
+            _c(
+              "div",
+              { staticClass: "flex items-center" },
+              [
+                _vm._t("right-side"),
+                _vm._v(" "),
+                _c("dropdown", { staticClass: "relative ml-6" }, [
                   _c(
-                    "router-link",
+                    "button",
                     {
-                      staticClass:
-                        "no-underline text-text-color font-sans hover:text-primary w-full block py-2 px-4 border-b border-very-light",
-                      attrs: {
-                        to: {
-                          name: "team-edit",
-                          params: { id: _vm.Wink.author.id }
+                      staticClass: "focus:outline-none",
+                      attrs: { slot: "trigger", type: "button" },
+                      slot: "trigger"
+                    },
+                    [
+                      _c("img", {
+                        staticClass: "rounded-full w-8 h-8",
+                        attrs: {
+                          src: _vm.Wink.author.avatar,
+                          title: _vm.Wink.author.name
                         }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Profile\n                        "
-                      )
+                      })
                     ]
                   ),
                   _vm._v(" "),
                   _c(
-                    "router-link",
+                    "div",
                     {
                       staticClass:
-                        "no-underline text-text-color hover:text-primary w-full block py-2 px-4",
-                      attrs: { to: "/posts" }
+                        "dropdown-content pin-r min-w-dropdown mt-1 text-sm py-2",
+                      attrs: { slot: "content" },
+                      slot: "content"
                     },
                     [
-                      _vm._v(
-                        "\n                            Posts\n                        "
+                      _c(
+                        "router-link",
+                        {
+                          staticClass:
+                            "no-underline text-text-color font-sans hover:text-primary w-full block py-2 px-4 border-b border-very-light",
+                          attrs: {
+                            to: {
+                              name: "team-edit",
+                              params: { id: _vm.Wink.author.id }
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Profile\n                        "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "router-link",
+                        {
+                          staticClass:
+                            "no-underline text-text-color hover:text-primary w-full block py-2 px-4",
+                          attrs: { to: "/posts" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Posts\n                        "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "router-link",
+                        {
+                          staticClass:
+                            "no-underline text-text-color hover:text-primary w-full block py-2 px-4",
+                          attrs: { to: "/team" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Users\n                        "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass:
+                            "no-underline text-text-color hover:text-primary w-full block py-2 px-4 border-t border-very-light",
+                          attrs: { href: "/" + _vm.Wink.path + "/logout" }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Log out\n                        "
+                          )
+                        ]
                       )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "no-underline text-text-color hover:text-primary w-full block py-2 px-4",
-                      attrs: { to: "/tags" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Tags\n                        "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "no-underline text-text-color hover:text-primary w-full block py-2 px-4",
-                      attrs: { to: "/team" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Team\n                        "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      staticClass:
-                        "no-underline text-text-color hover:text-primary w-full block py-2 px-4 border-t border-very-light",
-                      attrs: { href: "/" + _vm.Wink.path + "/logout" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Log out\n                        "
-                      )
-                    ]
+                    ],
+                    1
                   )
-                ],
-                1
-              )
-            ])
-          ],
-          2
+                ])
+              ],
+              2
+            )
+          ]
         )
       ])
-    ])
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -50205,15 +50207,31 @@ var render = function() {
           _vm.ready && _vm.entry
             ? _c("div", [
                 !_vm.status && _vm.form.published
-                  ? _c("span", { staticClass: "font-semibold" }, [
-                      _vm._v("Published")
-                    ])
+                  ? _c(
+                      "span",
+                      {
+                        staticClass: "font-semibold",
+                        staticStyle: {
+                          "border-color": "whitesmoke",
+                          color: "whitesmoke"
+                        }
+                      },
+                      [_vm._v("Published")]
+                    )
                   : _vm._e(),
                 _vm._v(" "),
                 !_vm.status && !_vm.form.published
-                  ? _c("span", { staticClass: "font-semibold" }, [
-                      _vm._v("Draft")
-                    ])
+                  ? _c(
+                      "span",
+                      {
+                        staticClass: "font-semibold",
+                        staticStyle: {
+                          "border-color": "whitesmoke",
+                          color: "whitesmoke"
+                        }
+                      },
+                      [_vm._v("Draft")]
+                    )
                   : _vm._e(),
                 _vm._v(" "),
                 _vm.status ? _c("span", [_vm._v(_vm._s(_vm.status))]) : _vm._e()
@@ -50235,6 +50253,10 @@ var render = function() {
                       "button",
                       {
                         staticClass: "py-1 px-2 btn-primary text-sm mr-6",
+                        staticStyle: {
+                          "border-color": "whitesmoke",
+                          color: "whitesmoke"
+                        },
                         on: { click: _vm.publishingModal }
                       },
                       [_vm._v("Publish")]
@@ -50246,44 +50268,13 @@ var render = function() {
                       "button",
                       {
                         staticClass: "py-1 px-2 btn-primary text-sm mr-6",
+                        staticStyle: {
+                          "border-color": "whitesmoke",
+                          color: "whitesmoke"
+                        },
                         on: { click: _vm.publishingModal }
                       },
                       [_vm._v("Update")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.id != "new"
-                  ? _c(
-                      "a",
-                      {
-                        staticClass:
-                          "block focus:outline-none text-light hover:text-primary mr-6",
-                        attrs: {
-                          href: _vm.postPreviewLink,
-                          target: "_blank",
-                          title: "Preview Post"
-                        }
-                      },
-                      [
-                        _c(
-                          "svg",
-                          {
-                            staticClass: "w-4 h-4 fill-current",
-                            attrs: {
-                              xmlns: "http://www.w3.org/2000/svg",
-                              viewBox: "0 0 20 20"
-                            }
-                          },
-                          [
-                            _c("path", {
-                              attrs: {
-                                d:
-                                  "M.2 10a11 11 0 0 1 19.6 0A11 11 0 0 1 .2 10zm9.8 4a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0-2a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
-                              }
-                            })
-                          ]
-                        )
-                      ]
                     )
                   : _vm._e(),
                 _vm._v(" "),
@@ -50385,25 +50376,7 @@ var render = function() {
                             "\n                        SEO & Social\n                    "
                           )
                         ]
-                      ),
-                      _vm._v(" "),
-                      _vm.id != "new"
-                        ? _c(
-                            "a",
-                            {
-                              staticClass:
-                                "no-underline text-red w-full block py-2 px-4",
-                              attrs: { href: "#" },
-                              on: {
-                                click: function($event) {
-                                  $event.preventDefault()
-                                  return _vm.deletePost($event)
-                                }
-                              }
-                            },
-                            [_vm._v("Delete")]
-                          )
-                        : _vm._e()
+                      )
                     ]
                   )
                 ])
@@ -50879,6 +50852,10 @@ var render = function() {
                 "router-link",
                 {
                   staticClass: "py-1 px-2 btn-primary text-sm",
+                  staticStyle: {
+                    "border-color": "whitesmoke",
+                    color: "whitesmoke"
+                  },
                   attrs: { to: { name: "post-new" } }
                 },
                 [_vm._v("\n                New Post\n            ")]
@@ -51911,6 +51888,10 @@ var render = function() {
                       }
                     ],
                     staticClass: "py-1 px-2 btn-primary text-sm mr-6",
+                    staticStyle: {
+                      "border-color": "whitesmoke",
+                      color: "whitesmoke"
+                    },
                     on: { click: _vm.save }
                   },
                   [_vm._v("Save")]
@@ -52392,9 +52373,13 @@ var render = function() {
               "router-link",
               {
                 staticClass: "py-1 px-2 btn-primary text-sm",
+                staticStyle: {
+                  "border-color": "whitesmoke",
+                  color: "whitesmoke"
+                },
                 attrs: { to: { name: "team-new" } }
               },
-              [_vm._v("\n                New Author\n            ")]
+              [_vm._v("\n                New User\n            ")]
             )
           ],
           1

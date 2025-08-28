@@ -10,13 +10,14 @@
 </script>
 
 <template>
-    <div class="border-b border-very-light mb-10">
+    <div class="border-b border-very-light mb-10" style="background: #26415e; color: white">
         <div class="container">
-            <div class="flex items-center py-2">
+            <div class="flex items-center" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
                 <div class="flex items-center mr-auto h-8">
                     <h3 class="mr-5 font-semibold font-serif" :class="{'hidden': hideLogoOnSmallScreens, 'sm:block': hideLogoOnSmallScreens}">
-                        <router-link to="/" class="no-underline text-text-color">
-                            <span class="text-light">W</span>ink.
+                        <router-link to="/" class="no-underline text-text-color" style="color: whitesmoke;">
+                        <!-- <img src="http://ats-blogs-app.test/images/ATS-Logo.png" style="height: 99px;"> -->
+                        ATS
                         </router-link>
                     </h3>
 
@@ -40,14 +41,14 @@
                             </router-link>
                             <!-- <router-link to="/pages" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
                                 Pages
-                            </router-link> -->
+                            </router-link>
 
                             <router-link to="/tags" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
                                 Tags
-                            </router-link>
+                            </router-link> -->
 
                             <router-link to="/team" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
-                                Team
+                                Users
                             </router-link>
                             <a :href="'/'+Wink.path+'/logout'" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4 border-t border-very-light">
                                 Log out

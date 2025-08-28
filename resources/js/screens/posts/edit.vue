@@ -369,24 +369,24 @@
         <page-header>
             <div slot="left-side">
                 <div v-if="ready && entry">
-                    <span class="font-semibold" v-if="!status && form.published">Published</span>
-                    <span class="font-semibold" v-if="!status && !form.published">Draft</span>
+                    <span class="font-semibold" v-if="!status && form.published" style="border-color: whitesmoke; color: whitesmoke;">Published</span>
+                    <span class="font-semibold" v-if="!status && !form.published" style="border-color: whitesmoke; color: whitesmoke;">Draft</span>
                     <span v-if="status">{{status}}</span>
                 </div>
             </div>
 
             <div class="flex items-center" v-if="ready && entry" slot="right-side">
-                <button class="py-1 px-2 btn-primary text-sm mr-6" @click="publishingModal" v-if="!form.published">Publish</button>
-                <button class="py-1 px-2 btn-primary text-sm mr-6" @click="publishingModal" v-if="form.published">Update</button>
+                <button class="py-1 px-2 btn-primary text-sm mr-6" @click="publishingModal" v-if="!form.published" style="border-color: whitesmoke; color: whitesmoke;">Publish</button>
+                <button class="py-1 px-2 btn-primary text-sm mr-6" @click="publishingModal" v-if="form.published" style="border-color: whitesmoke; color: whitesmoke;">Update</button>
 
-                <a :href="postPreviewLink" class="block focus:outline-none text-light hover:text-primary mr-6"
+                <!-- <a :href="postPreviewLink" class="block focus:outline-none text-light hover:text-primary mr-6"
                    target="_blank"
                    title="Preview Post"
                    v-if="id != 'new'">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-4 h-4 fill-current">
                         <path d="M.2 10a11 11 0 0 1 19.6 0A11 11 0 0 1 .2 10zm9.8 4a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0-2a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/>
                     </svg>
-                </a>
+                </a> -->
 
                 <dropdown class="relative">
                     <button slot="trigger" class="focus:outline-none text-light hover:text-primary h-8" title="Settings">
@@ -405,7 +405,7 @@
                         <a href="#" @click.prevent="seoModal" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
                             SEO & Social
                         </a>
-                        <a href="#" @click.prevent="deletePost" class="no-underline text-red w-full block py-2 px-4" v-if="id != 'new'">Delete</a>
+                        <!-- <a href="#" @click.prevent="deletePost" class="no-underline text-red w-full block py-2 px-4" v-if="id != 'new'">Delete</a> -->
                     </div>
                 </dropdown>
             </div>

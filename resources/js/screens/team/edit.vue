@@ -218,7 +218,7 @@
         <page-header>
             <div class="flex items-center" v-if="ready && entry" slot="right-side">
 
-                <button class="py-1 px-2 btn-primary text-sm mr-6" @click="save" v-loading="form.working">Save</button>
+                <button class="py-1 px-2 btn-primary text-sm mr-6" @click="save" v-loading="form.working" style="border-color: whitesmoke; color: whitesmoke;">Save</button>
 
                 <dropdown class="relative">
                     <button slot="trigger" class="focus:outline-none text-light hover:text-primary h-8">

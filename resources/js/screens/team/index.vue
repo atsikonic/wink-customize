@@ -42,8 +42,8 @@
     <div>
         <page-header>
             <div slot="right-side">
-                <router-link :to="{name:'team-new'}" class="py-1 px-2 btn-primary text-sm">
-                    New Author
+                <router-link :to="{name:'team-new'}" class="py-1 px-2 btn-primary text-sm" style="border-color: whitesmoke; color: whitesmoke;">
+                    New User
                 </router-link>
             </div>
         </page-header>

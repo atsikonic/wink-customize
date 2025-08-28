@@ -68,6 +68,14 @@ class PostsController
      */
     public function store($id)
     {
+        $path = null;
+        $fullpath = null;
+
+        if(!empty(request('featured_image'))) {
+            $path = request('featured_image');
+            $fullpath = url(request('featured_image'));
+        }
+
         $data = [
             'title' => request('title'),
             'excerpt' => request('excerpt', ''),
@@ -76,7 +84,8 @@ class PostsController
             'published' => request('published'),
             'markdown' => request('markdown'),
             'author_id' => request('author_id'),
-            'featured_image' => request('featured_image'),
+            'featured_image' => $path,
+            'featured_image_full_path' => $fullpath,
             'featured_image_caption' => request('featured_image_caption', ''),
             'publish_date' => request('publish_date', ''),
             'meta' => request('meta', (object) []),

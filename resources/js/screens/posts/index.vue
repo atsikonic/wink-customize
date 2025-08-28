@@ -86,7 +86,7 @@
     <div>
         <page-header>
             <template slot="right-side">
-                <router-link :to="{name:'post-new'}" class="py-1 px-2 btn-primary text-sm">
+                <router-link :to="{name:'post-new'}" class="py-1 px-2 btn-primary text-sm" style="border-color: whitesmoke; color: whitesmoke;">
                     New Post
                 </router-link>
             </template>
