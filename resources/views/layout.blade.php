@@ -12,6 +12,7 @@
 
     <!-- Icon-->
     <link rel="icon" type="image/png" href="/vendor/wink/favicon.png"/>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
 
     <!-- Highlight JS sheets -->
     <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/highlight.min.js"></script>
@@ -26,7 +27,7 @@
     @endif
 </head>
 
-<body class="text-text-color mb-20">
+<body class="text-text-color">
 
 <div id="wink" v-cloak>
     <alert :message="alert.message"

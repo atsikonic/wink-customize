@@ -54,6 +54,10 @@ return [
 
     'path' => env('WINK_PATH', 'wink'),
 
+    'BASE_URL' => env('BASE_URL'),
+
+    'APP_URL' => env('APP_URL'),
+
     /*
     |--------------------------------------------------------------------------
     | Wink Middleware Group

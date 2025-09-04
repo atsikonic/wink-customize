@@ -101,6 +101,12 @@ select{
     @apply bg-contrast border border-lighter rounded absolute z-50 whitespace-no-wrap shadow;
 }
 
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
 @tailwind utilities;
 
 input:-webkit-autofill,

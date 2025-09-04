@@ -22,19 +22,21 @@
 </script>
 
 <template>
-    <div>
-        <page-header></page-header>
+    <div class="w-screen min-h-screen flex flex-col">
+        <div class="flex flex-1 w-screen">
+            <sidebar></sidebar>
+            <main class="container-fluid flex-1 w-full">
+                <page-header></page-header>
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="card">
+                            <h2 class="mb-5 text-center">404 — Not found</h2>
 
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="card">
-                        <h2 class="mb-5 text-center">404 — Not found</h2>
-
-                        <p class="text-center">The page you're looking for couldn't be found!</p>
+                            <p class="text-center">The page you're looking for couldn't be found!</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
     </div>
 </template>

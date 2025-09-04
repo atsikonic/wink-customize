@@ -39,72 +39,78 @@
 </script>
 
 <template>
-    <div>
-        <page-header>
-            <div slot="right-side">
-                <router-link :to="{name:'team-new'}" class="py-1 px-2 btn-primary text-sm" style="border-color: whitesmoke; color: whitesmoke;">
-                    New User
-                </router-link>
-            </div>
-        </page-header>
+    <div class="w-screen min-h-screen flex flex-col">
 
-        <div class="container">
-            <div class="mb-10 flex items-center">
-                <h1 class="inline font-semibold text-3xl mr-auto">Team</h1>
+        <div class="flex flex-1 w-screen">
+            <sidebar></sidebar>
 
-                <filters @showing="focusSearchInput" :is-filtered="isFiltered">
-                    <input type="text" class="input mt-0 w-full"
-                           placeholder="Search..."
-                           v-model="searchQuery"
-                           ref="searchInput">
-                </filters>
-            </div>
+            <main class="container-fluid flex-1 w-full p-6">
+                <page-header>
+                    <div slot="right-side">
+                        <router-link :to="{name:'team-new'}" class="py-1 px-2 btn-primary text-sm">
+                            New User
+                        </router-link>
+                    </div>
+                </page-header>
+                <div class="container">
+                    <div class="mb-10 flex items-center">
+                        <h1 class="inline font-semibold text-3xl mr-auto">Team</h1>
 
-            <preloader v-if="!ready"></preloader>
+                        <filters @showing="focusSearchInput" :is-filtered="isFiltered">
+                            <input type="text" class="input mt-0 w-full"
+                                placeholder="Search..."
+                                v-model="searchQuery"
+                                ref="searchInput">
+                        </filters>
+                    </div>
 
-            <div v-if="ready && entries.length == 0 && !isFiltered">
-                <p>No authors were found, start by
-                    <router-link :to="{name:'team-new'}" class="no-underline text-primary hover:text-primary-dark">adding an author</router-link>
-                    .
-                </p>
-            </div>
+                    <preloader v-if="!ready"></preloader>
 
-            <div v-if="ready && entries.length == 0 && isFiltered">
-                No authors matched the given search.
-            </div>
+                    <div v-if="ready && entries.length == 0 && !isFiltered">
+                        <p>No authors were found, start by
+                            <router-link :to="{name:'team-new'}" class="no-underline text-primary hover:text-primary-dark">adding an author</router-link>
+                            .
+                        </p>
+                    </div>
 
-            <div v-if="ready && entries.length > 0">
-                <div v-for="entry in entries" :key="entry.id" class="border-t border-very-light flex items-center py-5">
-                    <div :title="entry.name">
-                        <h2 class="text-xl font-semibold mb-3">
-                            <router-link :to="{name:'team-edit', params:{id: entry.id}}" class="no-underline text-text-color">
-                                {{truncate(entry.name, 68)}}
+                    <div v-if="ready && entries.length == 0 && isFiltered">
+                        No authors matched the given search.
+                    </div>
+
+                    <div v-if="ready && entries.length > 0">
+                        <div v-for="entry in entries" :key="entry.id" class="border-t border-very-light flex items-center py-5">
+                            <div :title="entry.name">
+                                <h2 class="text-xl font-semibold mb-3">
+                                    <router-link :to="{name:'team-edit', params:{id: entry.id}}" class="no-underline text-text-color">
+                                        {{truncate(entry.name, 68)}}
+                                    </router-link>
+                                </h2>
+
+                                <small class="text-light">
+                                    <span>{{entry.email}}</span>
+                                    — Created {{timeAgo(entry.created_at)}}
+                                </small>
+                            </div>
+
+                            <div class="ml-auto text-light mr-8">
+                                {{entry.posts_count}} Post(s)
+                            </div>
+
+                            <router-link :to="{name:'team-edit', params:{id: entry.id}}" class="no-underline hidden lg:block">
+                                <div class="w-16 h-16 rounded-full bg-cover" :style="{ backgroundImage: 'url(' + entry.avatar + ')' }"></div>
                             </router-link>
-                        </h2>
+                        </div>
 
-                        <small class="text-light">
-                            <span>{{entry.email}}</span>
-                            — Created {{timeAgo(entry.created_at)}}
-                        </small>
-                    </div>
+                        <div v-if="hasMoreEntries">
+                            <div colspan="100" class="py-8 uppercase">
+                                <a href="#" v-on:click.prevent="loadOlderEntries" v-if="!loadingMoreEntries" class="no-underline text-primary">Load more authors</a>
 
-                    <div class="ml-auto text-light mr-8">
-                        {{entry.posts_count}} Post(s)
-                    </div>
-
-                    <router-link :to="{name:'team-edit', params:{id: entry.id}}" class="no-underline hidden lg:block">
-                        <div class="w-16 h-16 rounded-full bg-cover" :style="{ backgroundImage: 'url(' + entry.avatar + ')' }"></div>
-                    </router-link>
-                </div>
-
-                <div v-if="hasMoreEntries">
-                    <div colspan="100" class="py-8 uppercase">
-                        <a href="#" v-on:click.prevent="loadOlderEntries" v-if="!loadingMoreEntries" class="no-underline text-primary">Load more authors</a>
-
-                        <span v-if="loadingMoreEntries">Loading...</span>
+                                <span v-if="loadingMoreEntries">Loading...</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
     </div>
 </template>

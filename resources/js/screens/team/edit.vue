@@ -214,113 +214,118 @@
 </script>
 
 <template>
-    <div>
-        <page-header>
-            <div class="flex items-center" v-if="ready && entry" slot="right-side">
+    <div class="w-screen min-h-screen flex flex-col">
 
-                <button class="py-1 px-2 btn-primary text-sm mr-6" @click="save" v-loading="form.working" style="border-color: whitesmoke; color: whitesmoke;">Save</button>
+        <div class="flex flex-1 w-screen">
+            <sidebar></sidebar>
 
-                <dropdown class="relative">
-                    <button slot="trigger" class="focus:outline-none text-light hover:text-primary h-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-4 h-4 fill-current mt-1">
-                            <path d="M17 16v4h-2v-4h-2v-3h6v3h-2zM1 9h6v3H1V9zm6-4h6v3H7V5zM3 0h2v8H3V0zm12 0h2v12h-2V0zM9 0h2v4H9V0zM3 12h2v8H3v-8zm6-4h2v12H9V8z"/>
-                        </svg>
-                    </button>
+            <main class="container-fluid flex-1 w-full p-6">
+                <page-header>
+                    <div class="flex items-center" v-if="ready && entry" slot="right-side">
 
-                    <div slot="content" class="dropdown-content pin-r min-w-dropdown mt-1 text-sm py-2">
-                        <a href="#" @click.prevent="seoModal" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
-                            SEO & Social
-                        </a>
-                        <a href="#" @click.prevent="deleteAuthor" class="no-underline text-red w-full block py-2 px-4" v-if="id != 'new'">Delete</a>
+                        <button class="py-1 px-2 btn-primary text-sm mr-6" @click="save" v-loading="form.working">Save</button>
+
+                        <dropdown class="relative">
+                            <button slot="trigger" class="focus:outline-none text-light hover:text-primary h-8">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-4 h-4 fill-current mt-1">
+                                    <path d="M17 16v4h-2v-4h-2v-3h6v3h-2zM1 9h6v3H1V9zm6-4h6v3H7V5zM3 0h2v8H3V0zm12 0h2v12h-2V0zM9 0h2v4H9V0zM3 12h2v8H3v-8zm6-4h2v12H9V8z"/>
+                                </svg>
+                            </button>
+
+                            <div slot="content" class="dropdown-content pin-r min-w-dropdown mt-1 text-sm py-2">
+                                <a href="#" @click.prevent="seoModal" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
+                                    SEO & Social
+                                </a>
+                                <a href="#" @click.prevent="deleteAuthor" class="no-underline text-red w-full block py-2 px-4" v-if="id != 'new'">Delete</a>
+                            </div>
+                        </dropdown>
                     </div>
-                </dropdown>
-            </div>
-        </page-header>
+                </page-header>
+                <div class="container">
+                    <preloader v-if="!ready"></preloader>
 
-        <div class="container">
-            <preloader v-if="!ready"></preloader>
+                    <h2 v-if="ready && !entry" class="text-center font-normal">
+                        404 — Author not found
+                    </h2>
 
-            <h2 v-if="ready && !entry" class="text-center font-normal">
-                404 — Author not found
-            </h2>
+                    <div class="lg:w-2/3 mx-auto" v-if="ready && entry">
+                        <h1 class="font-semibold text-3xl mb-10" v-if="id != 'new' && Wink.author.id != entry.id">Edit Author</h1>
+                        <h1 class="font-semibold text-3xl mb-10" v-if="id == 'new' && Wink.author.id != entry.id">New Author</h1>
+                        <h1 class="font-semibold text-3xl mb-10" v-if="Wink.author.id == entry.id">Your Profile</h1>
 
-            <div class="lg:w-2/3 mx-auto" v-if="ready && entry">
-                <h1 class="font-semibold text-3xl mb-10" v-if="id != 'new' && Wink.author.id != entry.id">Edit Author</h1>
-                <h1 class="font-semibold text-3xl mb-10" v-if="id == 'new' && Wink.author.id != entry.id">New Author</h1>
-                <h1 class="font-semibold text-3xl mb-10" v-if="Wink.author.id == entry.id">Your Profile</h1>
+                        <div class="input-group">
+                            <label for="name" class="input-label">Name</label>
+                            <input type="text" class="input"
+                                v-model="form.name"
+                                placeholder="Give me a name"
+                                id="name">
 
-                <div class="input-group">
-                    <label for="name" class="input-label">Name</label>
-                    <input type="text" class="input"
-                           v-model="form.name"
-                           placeholder="Give me a name"
-                           id="name">
+                            <form-errors :errors="form.errors.name"></form-errors>
+                        </div>
 
-                    <form-errors :errors="form.errors.name"></form-errors>
+                        <div class="input-group">
+                            <label for="slug" class="input-label">Slug</label>
+                            <input type="text" class="input"
+                                v-model="form.slug"
+                                placeholder="and-a-slug-please"
+                                id="slug">
+
+                            <form-errors :errors="form.errors.slug"></form-errors>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="theme" class="input-label">Theme</label>
+                            <select class="input"
+                                    v-model="form.meta.theme"
+                                    id="theme">
+                                <option value="light">Light</option>
+                                <option value="dark">Dark</option>
+                            </select>
+
+                            <form-errors :errors="form.errors['meta.theme']"></form-errors>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="email" class="input-label">Email</label>
+                            <input type="email" class="input"
+                                v-model="form.email"
+                                placeholder="email@example.com"
+                                id="email">
+
+                            <form-errors :errors="form.errors.email"></form-errors>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="password" class="input-label">Password</label>
+                            <input type="password" class="input"
+                                v-model="form.password"
+                                placeholder="*****"
+                                id="password">
+
+                            <form-errors :errors="form.errors.password"></form-errors>
+                        </div>
+
+                        <div class="input-group mb-5">
+                            <label for="slug" class="input-label mb-4">Bio</label>
+                            <mini-editor v-model="form.bio"></mini-editor>
+                            <form-errors :errors="form.errors.bio"></form-errors>
+                        </div>
+
+                        <div v-if="uploading">
+                            <preloader></preloader>
+                        </div>
+
+                        <div class="flex items-center" v-if="!uploading">
+                            <div class="w-16 h-16 rounded-full bg-cover" :style="{ backgroundImage: 'url(' + form.avatar + ')' }"></div>
+
+                            <input type="file" class="hidden" id="author_avatar" accept="image/*" v-on:change="loadSelectedImage">
+
+                            <label for="author_avatar" class="ml-5 cursor-pointer underline">Upload an avatar</label>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="input-group">
-                    <label for="slug" class="input-label">Slug</label>
-                    <input type="text" class="input"
-                           v-model="form.slug"
-                           placeholder="and-a-slug-please"
-                           id="slug">
-
-                    <form-errors :errors="form.errors.slug"></form-errors>
-                </div>
-
-                <div class="input-group">
-                    <label for="theme" class="input-label">Theme</label>
-                    <select class="input"
-                            v-model="form.meta.theme"
-                            id="theme">
-                        <option value="light">Light</option>
-                        <option value="dark">Dark</option>
-                    </select>
-
-                    <form-errors :errors="form.errors['meta.theme']"></form-errors>
-                </div>
-
-                <div class="input-group">
-                    <label for="email" class="input-label">Email</label>
-                    <input type="email" class="input"
-                           v-model="form.email"
-                           placeholder="email@example.com"
-                           id="email">
-
-                    <form-errors :errors="form.errors.email"></form-errors>
-                </div>
-
-                <div class="input-group">
-                    <label for="password" class="input-label">Password</label>
-                    <input type="password" class="input"
-                           v-model="form.password"
-                           placeholder="*****"
-                           id="password">
-
-                    <form-errors :errors="form.errors.password"></form-errors>
-                </div>
-
-                <div class="input-group mb-5">
-                    <label for="slug" class="input-label mb-4">Bio</label>
-                    <mini-editor v-model="form.bio"></mini-editor>
-                    <form-errors :errors="form.errors.bio"></form-errors>
-                </div>
-
-                <div v-if="uploading">
-                    <preloader></preloader>
-                </div>
-
-                <div class="flex items-center" v-if="!uploading">
-                    <div class="w-16 h-16 rounded-full bg-cover" :style="{ backgroundImage: 'url(' + form.avatar + ')' }"></div>
-
-                    <input type="file" class="hidden" id="author_avatar" accept="image/*" v-on:change="loadSelectedImage">
-
-                    <label for="author_avatar" class="ml-5 cursor-pointer underline">Upload an avatar</label>
-                </div>
-            </div>
+            </main>
         </div>
-
 
         <!-- SEO & Social Modal -->
         <seo-modal v-if="seoModalShown"

@@ -34,7 +34,7 @@
 
                 form: {
                     id: '',
-                    title: 'Draft',
+                    title: 'Title',
                     slug: '',
                     excerpt: '',
                     tags: [],
@@ -365,80 +365,86 @@
 </script>
 
 <template>
-    <div>
-        <page-header>
-            <div slot="left-side">
-                <div v-if="ready && entry">
-                    <span class="font-semibold" v-if="!status && form.published" style="border-color: whitesmoke; color: whitesmoke;">Published</span>
-                    <span class="font-semibold" v-if="!status && !form.published" style="border-color: whitesmoke; color: whitesmoke;">Draft</span>
-                    <span v-if="status">{{status}}</span>
-                </div>
-            </div>
+    <div class="w-screen min-h-screen flex flex-col">
 
-            <div class="flex items-center" v-if="ready && entry" slot="right-side">
-                <button class="py-1 px-2 btn-primary text-sm mr-6" @click="publishingModal" v-if="!form.published" style="border-color: whitesmoke; color: whitesmoke;">Publish</button>
-                <button class="py-1 px-2 btn-primary text-sm mr-6" @click="publishingModal" v-if="form.published" style="border-color: whitesmoke; color: whitesmoke;">Update</button>
+        <div class="flex flex-1 w-screen">
+            <sidebar></sidebar>
 
-                <!-- <a :href="postPreviewLink" class="block focus:outline-none text-light hover:text-primary mr-6"
-                   target="_blank"
-                   title="Preview Post"
-                   v-if="id != 'new'">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-4 h-4 fill-current">
-                        <path d="M.2 10a11 11 0 0 1 19.6 0A11 11 0 0 1 .2 10zm9.8 4a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0-2a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/>
-                    </svg>
-                </a> -->
-
-                <dropdown class="relative">
-                    <button slot="trigger" class="focus:outline-none text-light hover:text-primary h-8" title="Settings">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-4 h-4 fill-current mt-1">
-                            <path d="M17 16v4h-2v-4h-2v-3h6v3h-2zM1 9h6v3H1V9zm6-4h6v3H7V5zM3 0h2v8H3V0zm12 0h2v12h-2V0zM9 0h2v4H9V0zM3 12h2v8H3v-8zm6-4h2v12H9V8z"/>
-                        </svg>
-                    </button>
-
-                    <div slot="content" class="dropdown-content pin-r min-w-dropdown mt-1 text-sm py-2">
-                        <a href="#" @click.prevent="settingsModal" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
-                            General Settings
-                        </a>
-                        <a href="#" @click.prevent="featuredImageModal" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
-                            Featured Image
-                        </a>
-                        <a href="#" @click.prevent="seoModal" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
-                            SEO & Social
-                        </a>
-                        <!-- <a href="#" @click.prevent="deletePost" class="no-underline text-red w-full block py-2 px-4" v-if="id != 'new'">Delete</a> -->
+            <main class="container-fluid flex-1 w-full">
+                <page-header>
+                    <div slot="left-side">
+                        <div v-if="ready && entry">
+                            <span class="font-semibold" v-if="!status && form.published">Published</span>
+                            <span class="font-semibold" v-if="!status && !form.published">Draft</span>
+                            <span v-if="status">{{status}}</span>
+                        </div>
                     </div>
-                </dropdown>
-            </div>
-        </page-header>
 
-        <div class="container">
-            <preloader v-if="!ready"></preloader>
+                    <div class="flex items-center" v-if="ready && entry" slot="right-side">
+                        <button class="py-1 px-2 btn-primary text-sm mr-6" @click="publishingModal" v-if="!form.published">Publish</button>
+                        <button class="py-1 px-2 btn-primary text-sm mr-6" @click="publishingModal" v-if="form.published">Update</button>
 
-            <h2 v-if="ready && !entry" class="text-center font-normal">
-                404 — Post not found
-            </h2>
+                        <!-- <a :href="postPreviewLink" class="block focus:outline-none text-light hover:text-primary mr-6"
+                        target="_blank"
+                        title="Preview Post"
+                        v-if="id != 'new'">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-4 h-4 fill-current">
+                                <path d="M.2 10a11 11 0 0 1 19.6 0A11 11 0 0 1 .2 10zm9.8 4a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0-2a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/>
+                            </svg>
+                        </a> -->
 
-            <div class="lg:w-3/4 mx-auto" v-if="ready && entry">
-                <textarea-autosize
-                    placeholder="Type something here..."
-                    class="text-3xl font-semibold w-full focus:outline-none mb-10"
-                    v-model="form.title"
-                ></textarea-autosize>
+                        <dropdown class="relative">
+                            <button slot="trigger" class="focus:outline-none text-light hover:text-primary h-8" title="Settings">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="w-4 h-4 fill-current mt-1">
+                                    <path d="M17 16v4h-2v-4h-2v-3h6v3h-2zM1 9h6v3H1V9zm6-4h6v3H7V5zM3 0h2v8H3V0zm12 0h2v12h-2V0zM9 0h2v4H9V0zM3 12h2v8H3v-8zm6-4h2v12H9V8z"/>
+                                </svg>
+                            </button>
 
-                <div v-if="form.markdown == null">
-                    <button class="w-full mb-5 hover:bg-lighter text-text-color block bg-very-light px-3 py-5 rounded" @click="form.markdown = false">
-                        I want a rich text editor
-                    </button>
-                    <button class="w-full mb-5 hover:bg-lighter text-text-color block bg-very-light px-3 py-5 rounded" @click="form.markdown = true">
-                        I will write markdown
-                    </button>
+                            <div slot="content" class="dropdown-content pin-r min-w-dropdown mt-1 text-sm py-2">
+                                <a href="#" @click.prevent="settingsModal" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
+                                    General Settings
+                                </a>
+                                <a href="#" @click.prevent="featuredImageModal" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
+                                    Featured Image
+                                </a>
+                                <a href="#" @click.prevent="seoModal" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
+                                    SEO & Social
+                                </a>
+                                <!-- <a href="#" @click.prevent="deletePost" class="no-underline text-red w-full block py-2 px-4" v-if="id != 'new'">Delete</a> -->
+                            </div>
+                        </dropdown>
+                    </div>
+                </page-header>
+                <div class="container">
+                    <preloader v-if="!ready"></preloader>
+
+                    <h2 v-if="ready && !entry" class="text-center font-normal">
+                        404 — Post not found
+                    </h2>
+
+                    <div class="lg:w-3/4 mx-auto" v-if="ready && entry">
+                        <textarea-autosize
+                            placeholder="Type something here..."
+                            class="text-3xl font-semibold w-full focus:outline-none mb-10"
+                            v-model="form.title"
+                        ></textarea-autosize>
+
+                        <div v-if="form.markdown == null">
+                            <button class="w-full mb-5 hover:bg-lighter text-text-color block bg-very-light px-3 py-5 rounded" @click="form.markdown = false">
+                                I want a rich text editor
+                            </button>
+                            <button class="w-full mb-5 hover:bg-lighter text-text-color block bg-very-light px-3 py-5 rounded" @click="form.markdown = true">
+                                I will write markdown
+                            </button>
+                        </div>
+                        <editor v-if="form.markdown == false" :post-id="id" v-model="form.body"></editor>
+                        <markdown-editor
+                            v-model="form.body"
+                            v-if="form.markdown == true">
+                        </markdown-editor>
+                    </div>
                 </div>
-                <editor v-if="form.markdown == false" :post-id="id" v-model="form.body"></editor>
-                <markdown-editor
-                    v-model="form.body"
-                    v-if="form.markdown == true">
-                </markdown-editor>
-            </div>
+            </main>
         </div>
 
         <!-- General Settings Modal -->

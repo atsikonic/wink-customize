@@ -10,16 +10,10 @@
 </script>
 
 <template>
-    <div class="border-b border-very-light mb-10" style="background: #26415e; color: white">
+    <div class="border-very-light mb-4">
         <div class="container">
             <div class="flex items-center" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
                 <div class="flex items-center mr-auto h-8">
-                    <h3 class="mr-5 font-semibold font-serif" :class="{'hidden': hideLogoOnSmallScreens, 'sm:block': hideLogoOnSmallScreens}">
-                        <router-link to="/" class="no-underline text-text-color" style="color: whitesmoke;">
-                        <!-- <img src="http://ats-blogs-app.test/images/ATS-Logo.png" style="height: 99px;"> -->
-                        ATS
-                        </router-link>
-                    </h3>
 
                     <slot name="left-side"></slot>
                 </div>

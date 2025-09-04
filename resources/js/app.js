@@ -33,6 +33,7 @@ Vue.component('image-picker', require('./components/ImagePicker').default);
 Vue.component('cropper-modal', require('./components/CropperModal').default);
 Vue.component('date-time-picker', require('./components/DateTimePicker').default);
 Vue.component('multiselect', require('./components/MultiSelect').default);
+Vue.component('sidebar', require('./components/Sidebar').default);
 Vue.directive('loading', require('./components/loadingButton'));
 Vue.directive('click-outside', require('./components/clickOutside'));
 
