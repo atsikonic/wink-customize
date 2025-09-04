@@ -4091,7 +4091,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this2 = this;
 
-    document.title = "Edit Post — Wink.";
+    document.title = "Edit Post";
     this.loadResources();
     this.http().get('/api/posts/' + this.id).then(function (response) {
       _this2.entry = _.cloneDeep(response.data.entry);
@@ -4399,7 +4399,7 @@ __webpack_require__.r(__webpack_exports__);
    * Prepare the component.
    */
   mounted: function mounted() {
-    document.title = "Posts — Wink.";
+    document.title = "Posts";
     this.loadEntries();
     this.loadResources();
     this.watchFiltersChanges();
@@ -4689,7 +4689,7 @@ __webpack_require__.r(__webpack_exports__);
    * Prepare the component.
    */
   mounted: function mounted() {
-    document.title = "Author — Wink.";
+    document.title = "User";
     this.loadEntry();
   },
   watch: {
@@ -4886,7 +4886,7 @@ __webpack_require__.r(__webpack_exports__);
    * Prepare the component.
    */
   mounted: function mounted() {
-    document.title = "Team — Wink.";
+    document.title = "Users";
     this.loadEntries();
   }
 });
@@ -53383,7 +53383,7 @@ var render = function() {
                           ? _c(
                               "h1",
                               { staticClass: "font-semibold text-3xl mb-10" },
-                              [_vm._v("Edit Author")]
+                              [_vm._v("Edit User")]
                             )
                           : _vm._e(),
                         _vm._v(" "),
@@ -53391,7 +53391,7 @@ var render = function() {
                           ? _c(
                               "h1",
                               { staticClass: "font-semibold text-3xl mb-10" },
-                              [_vm._v("New Author")]
+                              [_vm._v("New User")]
                             )
                           : _vm._e(),
                         _vm._v(" "),
@@ -53831,7 +53831,7 @@ var render = function() {
                     _c(
                       "h1",
                       { staticClass: "inline font-semibold text-3xl mr-auto" },
-                      [_vm._v("Team")]
+                      [_vm._v("Users")]
                     ),
                     _vm._v(" "),
                     _c(

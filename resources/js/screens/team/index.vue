@@ -31,7 +31,7 @@
          * Prepare the component.
          */
         mounted() {
-            document.title = "Team — Wink.";
+            document.title = "Users";
 
             this.loadEntries();
         },
@@ -54,7 +54,7 @@
                 </page-header>
                 <div class="container">
                     <div class="mb-10 flex items-center">
-                        <h1 class="inline font-semibold text-3xl mr-auto">Team</h1>
+                        <h1 class="inline font-semibold text-3xl mr-auto">Users</h1>
 
                         <filters @showing="focusSearchInput" :is-filtered="isFiltered">
                             <input type="text" class="input mt-0 w-full"
