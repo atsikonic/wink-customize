@@ -47,6 +47,7 @@
                     publish_date: '',
                     meta: {
                         meta_description: '',
+                        meta_title: '',
                         opengraph_title: '',
                         opengraph_description: '',
                         opengraph_image: '',
@@ -159,6 +160,7 @@
                     this.form.featured_image_caption = data.featured_image_caption;
                     this.form.meta = {
                         meta_description: data.meta.meta_description || '',
+                        meta_title: data.meta.meta_title || '',
                         opengraph_title: data.meta.opengraph_title || '',
                         opengraph_description: data.meta.opengraph_description || '',
                         opengraph_image: data.meta.opengraph_image || '',

@@ -90,7 +90,7 @@
                       id="meta_description"></textarea>
         </div>
 
-        <div class="input-group">
+        <!-- <div class="input-group">
             <label for="opengraph_title" class="input-label">
                 Facebook Card Title
             </label>
@@ -108,9 +108,9 @@
                       v-model="form.opengraph_description"
                       placeholder="Description in Facebook Card"
                       id="opengraph_description"></textarea>
-        </div>
+        </div> -->
 
-        <div class="input-group py-4">
+        <!-- <div class="input-group py-4">
             <div class="flex items-center justify-between">
                 <div>
                     <label class="input-label">
@@ -184,7 +184,7 @@
                          :style="{ backgroundImage: 'url(' + form.twitter_image + ')' }"></div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="mt-10">
             <button class="btn-sm btn-primary" @click="close">Done</button>
