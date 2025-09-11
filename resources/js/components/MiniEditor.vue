@@ -44,6 +44,8 @@
                         syntax: true,
                         toolbar: [
                             ['bold', 'italic', 'underline', 'strike', 'link'],
+                            [{'color': []}, {'background': []}],
+                            [{'size': ['small', false, 'large', 'huge']}],
 //                        [{'direction': 'rtl'}],
                         ]
                     },

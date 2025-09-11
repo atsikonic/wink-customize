@@ -1,5 +1,17 @@
 @import "node_modules/quill/dist/quill.bubble";
 
+/* Font size styles for Quill editor */
+.ql-size-small {
+    font-size: 0.75em;
+}
+
+.ql-size-large {
+    font-size: 1.5em;
+}
+
+.ql-size-huge {
+    font-size: 2.5em;
+}
 
 .ql-editor {
     @apply .font-serif .text-lg .leading-loose;

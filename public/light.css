@@ -1775,6 +1775,20 @@ table {
   visibility: visible;
 }
 
+/* Font size styles for Quill editor */
+
+.ql-size-small {
+  font-size: .75em;
+}
+
+.ql-size-large {
+  font-size: 1.5em;
+}
+
+.ql-size-huge {
+  font-size: 2.5em;
+}
+
 .ql-editor {
   font-family: Merriweather, Constantia, Lucida Bright, Lucidabright, Lucida Serif, Lucida, DejaVu Serif, Bitstream Vera Serif, Liberation Serif, Georgia, serif;
   font-size: 1.1rem;

@@ -53,7 +53,7 @@ class WinkClipboard extends Clipboard {
 
         tidy.ALLOWED_ATTR = [
             'class', 'spellcheck', 'href', 'rel',
-            'src', 'title', 'alt'
+            'src', 'title', 'alt', 'style', 'color'
         ];
 
         return tidy;

@@ -2286,7 +2286,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
             'list': 'ordered'
           }, {
             'list': 'bullet'
-          }, 'link'], ['blockquote', 'code-block']]
+          }, 'link'], ['blockquote', 'code-block'], [{
+            'color': []
+          }, {
+            'background': []
+          }], [{
+            'size': ['small', false, 'large', 'huge']
+          }]]
         },
         theme: 'bubble',
         scrollingContainer: 'html, body',
@@ -2778,7 +2784,13 @@ __webpack_require__.r(__webpack_exports__);
       return new quill__WEBPACK_IMPORTED_MODULE_1___default.a(this.$refs.editor, {
         modules: {
           syntax: true,
-          toolbar: [['bold', 'italic', 'underline', 'strike', 'link']]
+          toolbar: [['bold', 'italic', 'underline', 'strike', 'link'], [{
+            'color': []
+          }, {
+            'background': []
+          }], [{
+            'size': ['small', false, 'large', 'huge']
+          }]]
         },
         theme: 'bubble',
         scrollingContainer: 'html, body'
@@ -69504,7 +69516,7 @@ function (_Clipboard) {
     value: function getAllowed() {
       var tidy = {};
       tidy.ALLOWED_TAGS = ['p', 'br', 'span', 'b', 'strong', 'i', 'u', 's', 'h2', 'h3', 'pre', 'ol', 'ul', 'li', 'a', 'img', 'blockquote'];
-      tidy.ALLOWED_ATTR = ['class', 'spellcheck', 'href', 'rel', 'src', 'title', 'alt'];
+      tidy.ALLOWED_ATTR = ['class', 'spellcheck', 'href', 'rel', 'src', 'title', 'alt', 'style', 'color'];
       return tidy;
     }
   }]);

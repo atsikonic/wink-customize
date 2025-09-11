@@ -1,4 +1,17 @@
 /* Frontend styles for embedded images and content */
+/* Font size styles for frontend display */
+.ql-size-small {
+  font-size: 0.75em;
+}
+
+.ql-size-large {
+  font-size: 1.5em;
+}
+
+.ql-size-huge {
+  font-size: 2.5em;
+}
+
 /* Embedded Image Styles */
 .embedded_image {
   margin-bottom: 33px !important;
