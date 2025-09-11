@@ -7,6 +7,7 @@
                 existingBlot: null,
                 imageUrl: null,
                 layout: 'default',
+                size: 'default',
                 caption: '',
                 imagePickerKey: '',
                 uploadProgress: 0,
@@ -24,6 +25,7 @@
                     this.caption = data.caption;
                     this.imageUrl = data.url;
                     this.layout = data.layout || 'default';
+                    this.size = data.size || 'default';
                     this.existingBlot = data.existingBlot;
                 }
 
@@ -43,6 +45,8 @@
                 this.imageUrl = null;
 
                 this.layout = 'default';
+
+                this.size = 'default';
 
                 this.caption = '';
             },
@@ -66,6 +70,7 @@
                     caption: this.caption,
                     existingBlot: this.existingBlot,
                     layout: this.layout,
+                    size: this.size,
                 });
 
                 this.close();
@@ -100,6 +105,16 @@
                     <option value="wide">Wide Image</option>
                     <option value="horizontal">Horizontal (Image Left, Caption Right)</option>
                     <option value="horizontal-reverse">Horizontal (Image Right, Caption Left)</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Size</label>
+                <select class="input" v-model="size">
+                    <option value="default">Default</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
                 </select>
             </div>
         </div>

@@ -2390,11 +2390,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
       var url = _ref.url,
           caption = _ref.caption,
           existingBlot = _ref.existingBlot,
-          layout = _ref.layout;
+          layout = _ref.layout,
+          size = _ref.size;
       var values = {
         url: url,
         caption: caption,
-        layout: layout
+        layout: layout,
+        size: size
       };
 
       if (existingBlot) {
@@ -3528,6 +3530,7 @@ __webpack_require__.r(__webpack_exports__);
       existingBlot: null,
       imageUrl: null,
       layout: 'default',
+      size: 'default',
       caption: '',
       imagePickerKey: '',
       uploadProgress: 0,
@@ -3547,6 +3550,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.caption = data.caption;
         _this.imageUrl = data.url;
         _this.layout = data.layout || 'default';
+        _this.size = data.size || 'default';
         _this.existingBlot = data.existingBlot;
       }
 
@@ -3560,6 +3564,7 @@ __webpack_require__.r(__webpack_exports__);
       this.existingBlot = null;
       this.imageUrl = null;
       this.layout = 'default';
+      this.size = 'default';
       this.caption = '';
     },
     updateImage: function updateImage(_ref) {
@@ -3578,7 +3583,8 @@ __webpack_require__.r(__webpack_exports__);
         url: this.imageUrl,
         caption: this.caption,
         existingBlot: this.existingBlot,
-        layout: this.layout
+        layout: this.layout,
+        size: this.size
       });
       this.close();
     },
@@ -7016,7 +7022,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50302,6 +50308,57 @@ var render = function() {
                       ])
                     ]
                   )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "input-group" }, [
+                  _c("label", { staticClass: "input-label" }, [_vm._v("Size")]),
+                  _vm._v(" "),
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.size,
+                          expression: "size"
+                        }
+                      ],
+                      staticClass: "input",
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.size = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    [
+                      _c("option", { attrs: { value: "default" } }, [
+                        _vm._v("Default")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "small" } }, [
+                        _vm._v("Small")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "medium" } }, [
+                        _vm._v("Medium")
+                      ]),
+                      _vm._v(" "),
+                      _c("option", { attrs: { value: "large" } }, [
+                        _vm._v("Large")
+                      ])
+                    ]
+                  )
                 ])
               ])
             : _vm._e(),
@@ -69562,6 +69619,7 @@ function (_BlockEmbed) {
       var img = document.createElement('img');
       node.setAttribute('contenteditable', false);
       node.dataset.layout = value.layout;
+      node.dataset.size = value.size || 'default';
       img.setAttribute('alt', value.caption);
       img.setAttribute('src', value.url); // Create a container for horizontal layout
 
@@ -69585,6 +69643,7 @@ function (_BlockEmbed) {
       var img = node.querySelector('img');
       return {
         layout: node.dataset.layout,
+        size: node.dataset.size || 'default',
         caption: img.getAttribute('alt'),
         url: img.getAttribute('src')
       };

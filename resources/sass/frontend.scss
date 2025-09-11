@@ -21,6 +21,44 @@
     border-radius: 4px;
 }
 
+/* Image size styles */
+.embedded_image[data-size="default"] .image-container img {
+    max-width: 100% !important;
+}
+
+.embedded_image[data-size="small"] .image-container {
+    max-width: 200px !important;
+    margin: 0 auto;
+}
+
+.embedded_image[data-size="small"] .image-container img {
+    max-width: 100% !important;
+    width: 100%;
+    height: auto;
+}
+
+.embedded_image[data-size="medium"] .image-container {
+    max-width: 400px !important;
+    margin: 0 auto;
+}
+
+.embedded_image[data-size="medium"] .image-container img {
+    max-width: 100% !important;
+    width: 100%;
+    height: auto;
+}
+
+.embedded_image[data-size="large"] .image-container {
+    max-width: 600px !important;
+    margin: 0 auto;
+}
+
+.embedded_image[data-size="large"] .image-container img {
+    max-width: 100% !important;
+    width: 100%;
+    height: auto;
+}
+
 .embedded_image[data-layout="wide"] .image-container img {
     max-width: 1024px;
 }
@@ -45,6 +83,27 @@
     flex: 0 0 auto;
     min-width: 200px;
     max-width: 50%;
+}
+
+/* Horizontal layout size overrides */
+.embedded_image[data-layout="horizontal"][data-size="default"] .image-container {
+    min-width: 200px;
+    max-width: 50%;
+}
+
+.embedded_image[data-layout="horizontal"][data-size="small"] .image-container {
+    min-width: 150px;
+    max-width: 200px;
+}
+
+.embedded_image[data-layout="horizontal"][data-size="medium"] .image-container {
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.embedded_image[data-layout="horizontal"][data-size="large"] .image-container {
+    min-width: 250px;
+    max-width: 400px;
 }
 
 .embedded_image[data-layout="horizontal"] .image-container img {
@@ -76,6 +135,27 @@
     flex: 0 0 auto;
     min-width: 200px;
     max-width: 50%;
+}
+
+/* Horizontal reverse layout size overrides */
+.embedded_image[data-layout="horizontal-reverse"][data-size="default"] .image-container {
+    min-width: 200px;
+    max-width: 50%;
+}
+
+.embedded_image[data-layout="horizontal-reverse"][data-size="small"] .image-container {
+    min-width: 150px;
+    max-width: 200px;
+}
+
+.embedded_image[data-layout="horizontal-reverse"][data-size="medium"] .image-container {
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.embedded_image[data-layout="horizontal-reverse"][data-size="large"] .image-container {
+    min-width: 250px;
+    max-width: 400px;
 }
 
 .embedded_image[data-layout="horizontal-reverse"] .image-container img {

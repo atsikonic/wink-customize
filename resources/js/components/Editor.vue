@@ -191,11 +191,12 @@
             /**
              * Add a new captioned image to the content.
              */
-            applyImage({url, caption, existingBlot, layout}) {
+            applyImage({url, caption, existingBlot, layout, size}) {
                 let values = {
                     url: url,
                     caption: caption,
                     layout: layout,
+                    size: size,
                 };
 
                 if (existingBlot) {
