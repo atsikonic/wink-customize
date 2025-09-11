@@ -27,6 +27,10 @@ mix
 
 mix
     .sass('resources/sass/dark.scss', 'public', {}, [tailwindcss('./dark.js')])
+    .version();
+
+mix
+    .sass('resources/sass/frontend.scss', 'public')
     .version()
     .copy('resources/favicon.png', 'public')
     .copy('public', '../winktest/public/vendor/wink');

@@ -1,0 +1,114 @@
+/* Frontend styles for embedded images and content */
+/* Embedded Image Styles */
+.embedded_image {
+  margin-bottom: 33px !important;
+  cursor: default;
+}
+
+/* Default and wide layouts - vertical stacking */
+.embedded_image[data-layout=default],
+.embedded_image[data-layout=wide] {
+  display: block;
+}
+
+.embedded_image[data-layout=default] .image-container img,
+.embedded_image[data-layout=wide] .image-container img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.embedded_image[data-layout=wide] .image-container img {
+  max-width: 1024px;
+}
+
+.embedded_image[data-layout=default] .image-caption,
+.embedded_image[data-layout=wide] .image-caption {
+  text-align: center;
+  margin: 10px 0 0 0 !important;
+  line-height: 1.6;
+  color: #666;
+  font-style: italic;
+}
+
+/* Horizontal layout - image left, caption right */
+.embedded_image[data-layout=horizontal] {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.embedded_image[data-layout=horizontal] .image-container {
+  flex: 0 0 auto;
+  min-width: 200px;
+  max-width: 50%;
+}
+
+.embedded_image[data-layout=horizontal] .image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.embedded_image[data-layout=horizontal] .image-caption {
+  flex: 1;
+  margin: 0 !important;
+  padding: 10px 0;
+  text-align: left;
+  line-height: 1.6;
+  color: #666;
+  font-style: italic;
+}
+
+/* Horizontal reverse layout - image right, caption left */
+.embedded_image[data-layout=horizontal-reverse] {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-direction: row-reverse;
+}
+
+.embedded_image[data-layout=horizontal-reverse] .image-container {
+  flex: 0 0 auto;
+  min-width: 200px;
+  max-width: 50%;
+}
+
+.embedded_image[data-layout=horizontal-reverse] .image-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+.embedded_image[data-layout=horizontal-reverse] .image-caption {
+  flex: 1;
+  margin: 0 !important;
+  padding: 10px 0;
+  text-align: left;
+  line-height: 1.6;
+  color: #666;
+  font-style: italic;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+  .embedded_image[data-layout=horizontal],
+.embedded_image[data-layout=horizontal-reverse] {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .embedded_image[data-layout=horizontal] .image-container,
+.embedded_image[data-layout=horizontal-reverse] .image-container {
+    max-width: 100%;
+  }
+
+  .embedded_image[data-layout=horizontal] .image-caption,
+.embedded_image[data-layout=horizontal-reverse] .image-caption {
+    text-align: center;
+  }
+}

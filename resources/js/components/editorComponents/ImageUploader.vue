@@ -96,8 +96,10 @@
             <div class="input-group">
                 <label class="input-label">Layout</label>
                 <select class="input" v-model="layout">
-                    <option value="default">Default</option>
+                    <option value="default">Default (Vertical)</option>
                     <option value="wide">Wide Image</option>
+                    <option value="horizontal">Horizontal (Image Left, Caption Right)</option>
+                    <option value="horizontal-reverse">Horizontal (Image Right, Caption Left)</option>
                 </select>
             </div>
         </div>

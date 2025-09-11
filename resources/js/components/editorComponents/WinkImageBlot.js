@@ -12,10 +12,17 @@ class WinkImageBlot extends BlockEmbed {
 
         img.setAttribute('alt', value.caption);
         img.setAttribute('src', value.url);
-        node.appendChild(img);
+
+        // Create a container for horizontal layout
+        let imageContainer = document.createElement('div');
+        imageContainer.className = 'image-container';
+        imageContainer.appendChild(img);
+
+        node.appendChild(imageContainer);
 
         if (value.caption) {
             let caption = document.createElement('p');
+            caption.className = 'image-caption';
             caption.innerHTML = value.caption;
             node.appendChild(caption);
         }
