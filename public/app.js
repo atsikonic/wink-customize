@@ -2279,6 +2279,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
         modules: {
           syntax: true,
           toolbar: [['bold', 'italic', 'underline', 'strike', 'code'], [{
+            'header': '1'
+          }, {
             'header': '2'
           }, {
             'header': '3'
