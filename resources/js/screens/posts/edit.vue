@@ -412,7 +412,7 @@
                                 <a href="#" @click.prevent="seoModal" class="no-underline text-text-color hover:text-primary w-full block py-2 px-4">
                                     SEO & Social
                                 </a>
-                                <!-- <a href="#" @click.prevent="deletePost" class="no-underline text-red w-full block py-2 px-4" v-if="id != 'new'">Delete</a> -->
+                                <a href="#" @click.prevent="deletePost" class="no-underline text-red w-full block py-2 px-4" v-if="id != 'new'">Delete</a>
                             </div>
                         </dropdown>
                     </div>

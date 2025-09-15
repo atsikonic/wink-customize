@@ -51462,7 +51462,25 @@ var render = function() {
                                     "\n                                SEO & Social\n                            "
                                   )
                                 ]
-                              )
+                              ),
+                              _vm._v(" "),
+                              _vm.id != "new"
+                                ? _c(
+                                    "a",
+                                    {
+                                      staticClass:
+                                        "no-underline text-red w-full block py-2 px-4",
+                                      attrs: { href: "#" },
+                                      on: {
+                                        click: function($event) {
+                                          $event.preventDefault()
+                                          return _vm.deletePost($event)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Delete")]
+                                  )
+                                : _vm._e()
                             ]
                           )
                         ])
