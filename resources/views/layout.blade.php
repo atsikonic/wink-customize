@@ -25,6 +25,9 @@
         <link href='{{mix('light.css', 'vendor/wink')}}' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.13.1/build/styles/github.min.css">
     @endif
+
+    <!-- Frontend styles for content display -->
+    <link href='{{mix('frontend.css', 'vendor/wink')}}' rel='stylesheet' type='text/css'>
 </head>
 
 <body class="text-text-color">

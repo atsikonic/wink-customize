@@ -22,7 +22,7 @@ class WinkImageBlot extends BlockEmbed {
         node.appendChild(imageContainer);
 
         if (value.caption) {
-            let caption = document.createElement('p');
+            let caption = document.createElement('div');
             caption.className = 'image-caption';
             caption.innerHTML = value.caption;
             node.appendChild(caption);
@@ -33,11 +33,12 @@ class WinkImageBlot extends BlockEmbed {
 
     static value(node) {
         let img = node.querySelector('img');
+        let captionElement = node.querySelector('.image-caption');
 
         return {
             layout: node.dataset.layout,
             size: node.dataset.size || 'default',
-            caption: img.getAttribute('alt'),
+            caption: captionElement ? captionElement.innerHTML : '',
             url: img.getAttribute('src')
         };
     }

@@ -1,5 +1,11 @@
 <script type="text/ecmascript">
+    import MiniEditor from '../MiniEditor.vue';
+
     export default {
+        components: {
+            'mini-editor': MiniEditor
+        },
+
         props: ['postId'],
 
         data() {
@@ -95,7 +101,7 @@
 
             <div class="input-group">
                 <label class="input-label">Caption</label>
-                <textarea rows="2" v-model="caption" ref="caption" class="input" placeholder="Add caption to the image"></textarea>
+                <mini-editor v-model="caption" ref="caption"></mini-editor>
             </div>
 
             <div class="input-group">

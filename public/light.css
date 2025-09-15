@@ -1849,11 +1849,6 @@ table {
   margin-bottom: 15px;
 }
 
-.ql-editor ol,
-.ql-editor ul {
-  padding-left: 0;
-}
-
 .ql-editor ol li,
 .ql-editor ul li {
   margin-bottom: 20px;

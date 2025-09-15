@@ -2787,6 +2787,10 @@ __webpack_require__.r(__webpack_exports__);
         modules: {
           syntax: true,
           toolbar: [['bold', 'italic', 'underline', 'strike', 'link'], [{
+            'list': 'ordered'
+          }, {
+            'list': 'bullet'
+          }], [{
             'color': []
           }, {
             'background': []
@@ -3537,7 +3541,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MiniEditor_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../MiniEditor.vue */ "./resources/js/components/MiniEditor.vue");
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    'mini-editor': _MiniEditor_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
   props: ['postId'],
   data: function data() {
     return {
@@ -7036,7 +7045,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -50239,37 +50248,27 @@ var render = function() {
                   attrs: { src: _vm.imageUrl }
                 }),
                 _vm._v(" "),
-                _c("div", { staticClass: "input-group" }, [
-                  _c("label", { staticClass: "input-label" }, [
-                    _vm._v("Caption")
-                  ]),
-                  _vm._v(" "),
-                  _c("textarea", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
+                _c(
+                  "div",
+                  { staticClass: "input-group" },
+                  [
+                    _c("label", { staticClass: "input-label" }, [
+                      _vm._v("Caption")
+                    ]),
+                    _vm._v(" "),
+                    _c("mini-editor", {
+                      ref: "caption",
+                      model: {
                         value: _vm.caption,
+                        callback: function($$v) {
+                          _vm.caption = $$v
+                        },
                         expression: "caption"
                       }
-                    ],
-                    ref: "caption",
-                    staticClass: "input",
-                    attrs: {
-                      rows: "2",
-                      placeholder: "Add caption to the image"
-                    },
-                    domProps: { value: _vm.caption },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.caption = $event.target.value
-                      }
-                    }
-                  })
-                ]),
+                    })
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _c("div", { staticClass: "input-group" }, [
                   _c("label", { staticClass: "input-label" }, [
@@ -69643,7 +69642,7 @@ function (_BlockEmbed) {
       node.appendChild(imageContainer);
 
       if (value.caption) {
-        var caption = document.createElement('p');
+        var caption = document.createElement('div');
         caption.className = 'image-caption';
         caption.innerHTML = value.caption;
         node.appendChild(caption);
@@ -69655,10 +69654,11 @@ function (_BlockEmbed) {
     key: "value",
     value: function value(node) {
       var img = node.querySelector('img');
+      var captionElement = node.querySelector('.image-caption');
       return {
         layout: node.dataset.layout,
         size: node.dataset.size || 'default',
-        caption: img.getAttribute('alt'),
+        caption: captionElement ? captionElement.innerHTML : '',
         url: img.getAttribute('src')
       };
     }
