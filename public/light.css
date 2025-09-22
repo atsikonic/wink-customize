@@ -1923,7 +1923,7 @@ table {
 }
 
 .embedded_image {
-  margin-bottom: 33px !important;
+  margin-bottom: 8px !important;
   cursor: default;
 }
 
@@ -1992,7 +1992,7 @@ table {
   margin: 10px 0 0 0 !important;
   line-height: 1.6;
   color: #666;
-  font-style: italic;
+  font-style: normal;
 }
 
 /* Horizontal layout - side by side */
@@ -2045,7 +2045,7 @@ table {
   text-align: left;
   line-height: 1.6;
   color: #666;
-  font-style: italic;
+  font-style: normal;
 }
 
 .embedded_image:hover .image-container img {
@@ -2103,7 +2103,7 @@ table {
   text-align: left;
   line-height: 1.6;
   color: #666;
-  font-style: italic;
+  font-style: normal;
 }
 
 /* Responsive behavior for smaller screens */
