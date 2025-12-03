@@ -90,7 +90,11 @@
   padding-left: 1.5em !important;
 }
 
-.ql-editor, .wink-body ul > li::before {
+.ql-editor ul > li::before {
+  content: "\2022" !important;
+}
+
+.wink-body ul > li::before {
   content: "\2022" !important;
   display: inline-block !important;
   width: 1.2em !important;
