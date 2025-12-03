@@ -1,12 +1,19 @@
 /* Frontend styles for embedded images and content */
 
 /* Font size styles for frontend display */
+// .wink-body p {
+//     font-size: 14pt;
+// }
 .ql-size-small {
     font-size: 0.75em;
 }
 
+.ql-size-normal {
+    font-size: 14pt;
+}
+
 .ql-size-large {
-    font-size: 1.5em;
+    font-size: 2em;
 }
 
 .ql-size-huge {
@@ -69,17 +76,32 @@
 
 /* List styling for frontend */
 .ql-editor ol,
-.ql-editor ul {
+.ql-editor ul,
+.wink-body ol,
+.wink-body ul {
     padding-left: 1.5em !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 33px !important;
 }
 
 .ql-editor ol > li,
-.ql-editor ul > li {
+.ql-editor ul > li,
+.wink-body ol > li,
+.wink-body ul > li {
     list-style-type: none !important;
+    position: relative !important;
+    padding-left: 1.5em !important;
 }
 
-.ql-editor ul > li::before {
+.ql-editor, .wink-body ul > li::before {
     content: "\2022" !important;
+    display: inline-block !important;
+    width: 1.2em !important;
+    position: absolute !important;
+    left: 0 !important;
+    text-align: right !important;
+    font-weight: bold !important;
 }
 
 .ql-editor li::before {
@@ -101,7 +123,7 @@
 
 .ql-editor ol li:not(.ql-direction-rtl),
 .ql-editor ul li:not(.ql-direction-rtl) {
-    padding-left: 1.5em;
+    padding-left: 1.5em !important;
 }
 
 .ql-editor ol li.ql-direction-rtl,

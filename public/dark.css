@@ -1781,8 +1781,12 @@ table {
   font-size: .75em;
 }
 
+.ql-size-normal {
+  font-size: 14pt;
+}
+
 .ql-size-large {
-  font-size: 1.5em;
+  font-size: 2em;
 }
 
 .ql-size-huge {
